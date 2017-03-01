@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { Provider } from 'react-redux';
-import { Router } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import codePush from 'react-native-code-push';
 // import { whyDidYouUpdate } from 'why-did-you-update';
 
+import Navigation from '../../navigation/Navigation';
+
 import configureStore from '../../store/configStore';
-import scenes from '../../navigation/routes.js';
 import theme from '../../styles/appStyles';
 
 EStyleSheet.build(theme);
 
 const store = configureStore();
-const RouterWithRedux = connect()(Router);
 const codePushOptions = {
   updateDialog: true,
   checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
@@ -37,7 +36,7 @@ class Root extends Component {
   render() {
     return (
       <Provider store={store}>
-        <RouterWithRedux scenes={scenes} />
+        <Navigation />
       </Provider>
     );
   }

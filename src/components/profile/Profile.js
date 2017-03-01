@@ -3,7 +3,6 @@ import { View, Text } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import shallowequal from 'shallowequal';
 
-import Header from './items/Header';
 import Button from '../shared/Button';
 
 import { connect } from 'react-redux';
@@ -22,7 +21,7 @@ const styles = EStyleSheet.create({
   }
 });
 
-class Home extends Component {
+class Profile extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowequal(nextProps, this.props) && shallowequal(nextState, this.state);
   }
@@ -30,20 +29,16 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
-        <Text style={styles.text}>Home</Text>
+        <Text style={styles.text}>Profile</Text>
         <Button
-          label={'Go to History'}
-          action={() => { this.props.navigatePush('History'); }}
-        />
-        <Button
-          label={'Go to Profile'}
-          action={() => { this.props.navigatePush('Profile'); }}
+          label={'Go to home page'}
+          action={() => { this.props.onButtonPress(); }}
         />
       </View>
     );
   }
 }
+
 
 const mapStateToProps = (state) => {
   return {
@@ -52,8 +47,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    navigatePush: (key) => {
-      dispatch(navigatePush(key));
+    onButtonPress: () => {
+      dispatch(navigatePush('Home'));
     }
   };
 };
@@ -61,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Home);
+)(Profile);
