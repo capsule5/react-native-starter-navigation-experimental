@@ -1,6 +1,8 @@
 import * as NavigationStateUtils from 'NavigationStateUtils';
 
 import {
+  SWIPE_RIGHT,
+  SWIPE_LEFT,
   NAV_PUSH,
   NAV_POP,
   NAV_JUMP_TO_KEY,
@@ -19,6 +21,10 @@ const initialNavState = {
 
 const navigationState = (state = initialNavState, action) => {
   switch (action.type) {
+    case SWIPE_RIGHT:
+      return NavigationStateUtils.back(state);
+    case SWIPE_LEFT:
+      return NavigationStateUtils.forward(state);
     case NAV_PUSH:
       if (state.routes[state.index].key === (action.state && action.state.key)) { return state; }
       return NavigationStateUtils.push(state, action.state);
