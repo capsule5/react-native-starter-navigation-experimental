@@ -7,7 +7,7 @@ import Header from './items/Header';
 import Button from '../shared/Button';
 
 import { connect } from 'react-redux';
-import { navigatePush } from '../../navigation/navigationActions';
+import { navigateJumpToKey } from '../../navigation/navigationActions';
 
 const styles = EStyleSheet.create({
   container: {
@@ -34,11 +34,11 @@ class Home extends Component {
         <Text style={styles.text}>Home</Text>
         <Button
           label={'Go to History'}
-          action={() => { this.props.navigatePush('History'); }}
+          action={() => { this.props.navigateJumpToKey('History'); }}
         />
         <Button
           label={'Go to Profile'}
-          action={() => { this.props.navigatePush('Profile'); }}
+          action={() => { this.props.navigateJumpToKey('Profile'); }}
         />
       </View>
     );
@@ -52,13 +52,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    navigatePush: (key) => {
-      dispatch(navigatePush(key));
+    navigateJumpToKey: (key) => {
+      dispatch(navigateJumpToKey(key));
     }
   };
 };
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Home);

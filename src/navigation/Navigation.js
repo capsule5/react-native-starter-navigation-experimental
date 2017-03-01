@@ -54,16 +54,7 @@ class Navigation extends React.Component {
                 renderScene={this._renderScene}
                 key={props.scene.route.key}
               />
-              <NavigationHeader
-                {...props}
-                onNavigateBack={backAction}
-                renderTitleComponent={() => {
-                  const title = props.scene.route.title;
 
-                  return <NavigationHeader.Title>{title}</NavigationHeader.Title>;
-                }}
-              // When dealing with modals you may also want to override renderLeftComponent...
-              />
             </View>
           );
         }}

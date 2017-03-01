@@ -9,9 +9,11 @@ import {
 } from './navigationActions';
 
 const initialNavState = {
-  index: 0,
+  index: 1,
   routes: [
-    { key: 'Home', title: 'Home' }
+    { key: 'Profile', title: 'Profile' },
+    { key: 'Home', title: 'Home' },
+    { key: 'History', title: 'History' }
   ]
 };
 

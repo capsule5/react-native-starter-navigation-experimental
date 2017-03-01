@@ -6,7 +6,7 @@ import shallowequal from 'shallowequal';
 import Button from '../shared/Button';
 
 import { connect } from 'react-redux';
-import { navigatePush } from '../../navigation/navigationActions';
+import { navigateJumpToKey } from '../../navigation/navigationActions';
 
 const styles = EStyleSheet.create({
   container: {
@@ -32,7 +32,7 @@ class History extends Component {
         <Text style={styles.text}>History</Text>
         <Button
           label={'Go to home page'}
-          action={() => { this.props.onButtonPress(); }}
+          action={() => { this.props.navigateJumpToKey('Home'); }}
         />
       </View>
     );
@@ -47,13 +47,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onButtonPress: () => {
-      dispatch(navigatePush('Home'));
+    navigateJumpToKey: () => {
+      dispatch(navigateJumpToKey('Home'));
     }
   };
 };
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(History);
