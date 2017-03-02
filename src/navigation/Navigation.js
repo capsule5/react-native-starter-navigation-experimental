@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { NavigationExperimental, View, StyleSheet, Animated, Easing } from 'react-native';
 import { connect } from 'react-redux';
+import shallowequal from 'shallowequal';
 
 import Home from '../components/home/Home';
 import History from '../components/history/History';
@@ -33,8 +34,12 @@ class Navigation extends React.Component {
     this._renderView = this._renderView.bind(this);
   }
 
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return shallowequal(nextProps, this.props) && shallowequal(nextState, this.state);
+  // }
+
   animateCard(props) {
-    console.log('animateCard', props);
+    // console.log('animateCard', props);
     const {
       layout,
       position,
@@ -111,6 +116,7 @@ class Navigation extends React.Component {
   }
 
   _render(transitionProps) {
+    // console.log('_render', transitionProps);
     const scenes = transitionProps.scenes.map((scene) => {
       const sceneProps = {
         ...transitionProps,
@@ -128,6 +134,7 @@ class Navigation extends React.Component {
   }
 
   render() {
+    // console.log('render', this.props);
     const { navigationState, backAction } = this.props;
 
     return (
@@ -140,6 +147,7 @@ class Navigation extends React.Component {
             duration: 500,
             easing: Easing.out(Easing.back(2)),
             timing: Animated.timing
+            // useNativeDriver: true
           };
         }}
         navigationState={navigationState}

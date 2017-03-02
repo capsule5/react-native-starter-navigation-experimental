@@ -12,7 +12,7 @@ import { navigateJumpToKey, swipeLeft, swipeRight } from '../../navigation/navig
 const styles = EStyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '$itemColors.regular',
+    backgroundColor: '$itemColors.blue',
     justifyContent: 'center',
     alignItems: 'center'
   },

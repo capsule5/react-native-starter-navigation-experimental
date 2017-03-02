@@ -3,7 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import codePush from 'react-native-code-push';
-// import { whyDidYouUpdate } from 'why-did-you-update';
+import { whyDidYouUpdate } from 'why-did-you-update';
 
 import Navigation from '../../navigation/Navigation';
 
@@ -19,13 +19,13 @@ const codePushOptions = {
   installMode: codePush.InstallMode.IMMEDIATE
 };
 
-
 class Root extends Component {
   constructor(props) {
     super(props);
 
     // if (process.env.NODE_ENV !== 'production') {
     //   whyDidYouUpdate(React, { exclude: /^AnimatedComponent|^NavigationCard|^Container|^NavigationComponent/ });
+    //   whyDidYouUpdate(React);
     // }
   }
 
