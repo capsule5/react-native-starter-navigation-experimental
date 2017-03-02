@@ -5,8 +5,10 @@ import createLogger from 'redux-logger';
 import { persistStore, autoRehydrate, purgeStoredState } from 'redux-persist';
 
 import indexReducer from './indexReducer';
-import home from '../components/home/homeReducer';
-import routes from '../navigation/routesReducer';
+import homeState from '../components/home/homeReducer';
+import historyState from '../components/history/historyReducer';
+import profileState from '../components/profile/profileReducer';
+import navigationState from '../navigation/navigationReducer';
 
 import { PERSIST_ENABLED, PERSIST_PURGE } from '../utils/persist';
 
@@ -33,8 +35,10 @@ const enhancer = compose(
 );
 
 const appReducer = combineReducers({
-  routes,
-  home
+  navigationState,
+  homeState,
+  profileState,
+  historyState
 });
 
 const rootReducer = (state, action) => {

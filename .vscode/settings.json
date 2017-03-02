@@ -1,0 +1,14 @@
+// Placez vos paramètres dans ce fichier pour remplacer les paramètres par défaut et les paramètres utilisateur.
+{
+   "terminal.integrated.shell.osx": "/bin/zsh",
+   "editor.renderIndentGuides": true,
+   "git.confirmSync": false,
+   "typescript.check.tscVersion": false,
+   "diffEditor.renderSideBySide": false,
+   "editor.detectIndentation": false,
+   "editor.formatOnType": true,
+   "editor.formatOnSave": true,
+   "eslint.autoFixOnSave": true,
+   "editor.wordWrap": true,
+   "editor.tabSize": 2
+}

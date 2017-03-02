@@ -3,16 +3,15 @@ import { View, Text } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import shallowequal from 'shallowequal';
 
-import Header from './items/Header';
 import Button from '../shared/Button';
 
 import { connect } from 'react-redux';
-import { navigateJumpToKey, swipeLeft, swipeRight } from '../../navigation/navigationActions';
+import { navigateJumpToKey } from '../../navigation/navigationActions';
 
 const styles = EStyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '$itemColors.blue',
+    backgroundColor: '$itemColors.green',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -22,7 +21,7 @@ const styles = EStyleSheet.create({
   }
 });
 
-class Home extends Component {
+class History extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return shallowequal(nextProps, this.props) && shallowequal(nextState, this.state);
   }
@@ -30,20 +29,16 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
-        <Text style={styles.text}>Home</Text>
+        <Text style={styles.text}>History</Text>
         <Button
-          label={'Go to History'}
-          action={() => { this.props.swipeLeft(); }}
-        />
-        <Button
-          label={'Go to Profile'}
-          action={() => { this.props.swipeRight(); }}
+          label={'Go to home page'}
+          action={() => { this.props.navigateJumpToKey('Home'); }}
         />
       </View>
     );
   }
 }
+
 
 const mapStateToProps = (state) => {
   return {
@@ -52,11 +47,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    swipeLeft: () => {
-      dispatch(swipeLeft());
-    },
-    swipeRight: () => {
-      dispatch(swipeRight());
+    navigateJumpToKey: () => {
+      dispatch(navigateJumpToKey('Home'));
     }
   };
 };
@@ -64,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(History);

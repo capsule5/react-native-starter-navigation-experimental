@@ -4,7 +4,7 @@ const initialState = {
   toto: false
 };
 
-const homeState = (state = initialState, action) => {
+const profileState = (state = initialState, action) => {
   switch (action.type) {
     case DUMMY_ACTION:
       return {
@@ -16,4 +16,4 @@ const homeState = (state = initialState, action) => {
   }
 };
 
-export default homeState;
+export default profileState;
